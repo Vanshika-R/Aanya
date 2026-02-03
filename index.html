@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday Aanya 💗</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background-color: #f8c8dc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .screen {
+      display: none;
+      width: 100%;
+      max-width: 900px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .active {
+      display: block;
+    }
+
+    h1 {
+      color: #c4002f;
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    .decor {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      background-color: #c4002f;
+      color: white;
+      padding: 12px 28px;
+      border: none;
+      border-radius: 30px;
+      font-size: 1rem;
+      cursor: pointer;
+      margin: 15px;
+    }
+
+    .name-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    .name-box {
+      background-color: #c4002f;
+      color: white;
+      padding: 15px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 1.1rem;
+    }
+
+    .scroll {
+      background: #fdf5e6;
+      border: 2px solid #d2b48c;
+      border-radius: 10px;
+      padding: 40px 20px;
+      max-width: 600px;
+      margin: 40px auto;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .scroll::before,
+    .scroll::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 20px;
+      background: #d2b48c;
+      left: 0;
+    }
+
+    .scroll::before {
+      top: -20px;
+      border-radius: 20px 20px 0 0;
+    }
+
+    .scroll::after {
+      bottom: -20px;
+      border-radius: 0 0 20px 20px;
+    }
+
+    .letter-text {
+      display: none;
+      color: black;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      white-space: pre-wrap;
+    }
+
+    .string {
+      width: 80px;
+      height: 6px;
+      background: brown;
+      margin: 10px auto;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- SCREEN 1 -->
+  <div class="screen active" id="screen1">
+    <h1>Happy Birthday Aanya ❤️</h1>
+    <div class="decor">🎂 💕 🎉 💗</div>
+
+    <button class="btn" onclick="goToScreen(2)">Next</button>
+  </div>
+
+  <!-- SCREEN 2 -->
+  <div class="screen" id="screen2">
+    <h1>Letters for You 💌</h1>
+
+    <div class="name-grid">
+      <div class="name-box" onclick="openLetter('Vanshika')">Vanshika</div>
+      <div class="name-box" onclick="openLetter('Saravya')">Saravya</div>
+      <div class="name-box" onclick="openLetter('Krishna')">Krishna</div>
+      <div class="name-box" onclick="openLetter('Palak')">Palak</div>
+      <div class="name-box" onclick="openLetter('Ira')">Ira</div>
+      <div class="name-box" onclick="openLetter('Shreya')">Shreya</div>
+      <div class="name-box" onclick="openLetter('Vanyya')">Vanyya</div>
+    </div>
+
+    <button class="btn" onclick="goToScreen(1)">Go Back</button>
+  </div>
+
+  <!-- SCREEN 3 -->
+  <div class="screen" id="screen3">
+    <h1 id="letterTitle"></h1>
+
+    <div class="scroll" onclick="unrollLetter()">
+      <div class="string"></div>
+      <p>(Click to unroll the letter)</p>
+
+      <div class="letter-text" id="letterText">
+        This is a placeholder letter 💗  
+        We’ll replace this with the real note soon.
+      </div>
+    </div>
+
+    <button class="btn" onclick="goToScreen(2)">Go Back</button>
+  </div>
+
+  <script>
+    function goToScreen(num) {
+      document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+      document.getElementById('screen' + num).classList.add('active');
+    }
+
+    function openLetter(name) {
+      document.getElementById('letterTitle').innerText = name + "'s Letter 💕";
+      document.getElementById('letterText').style.display = "none";
+      goToScreen(3);
+    }
+
+    function unrollLetter() {
+      document.getElementById('letterText').style.display = "block";
+    }
+  </script>
+
+</body>
+</html>
