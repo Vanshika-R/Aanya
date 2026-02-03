@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday Aanya</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Georgia', serif;
+  background-color: #f8c8dc;
+  min-height: 100vh;
+}
+
+.screen {
+  display: none;
+  padding: 30px;
+  text-align: center;
+}
+
+.active {
+  display: block;
+}
+
+.btn {
+  background-color: #c4002f;
+  color: white;
+  padding: 14px 30px;
+  border: none;
+  border-radius: 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 25px;
+}
+
+/* ---------- FIRST PAGE ---------- */
+.hero {
+  position: relative;
+  min-height: 100vh;
+}
+
+.hero h1 {
+  color: #c4002f;
+  font-size: 3.2rem;
+  margin-top: 120px;
+}
+
+.sub {
+  color: #8b0033;
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+/* bows */
+.bow {
+  position: absolute;
+  font-size: 2rem;
+}
+.bow1 { top: 40px; left: 30px; }
+.bow2 { top: 80px; right: 40px; }
+.bow3 { bottom: 100px; left: 60px; }
+.bow4 { bottom: 140px; right: 80px; }
+
+/* sparkles */
+.sparkle {
+  position: absolute;
+  color: #ff4f8b;
+  font-size: 1.5rem;
+}
+.sp1 { top: 200px; left: 120px; }
+.sp2 { top: 260px; right: 100px; }
+.sp3 { bottom: 220px; left: 200px; }
+.sp4 { bottom: 260px; right: 160px; }
+
+/* ---------- NAME PAGE ---------- */
+.name-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 15px;
+  margin-top: 40px;
+}
+
+.name-box {
+  background-color: #c4002f;
+  color: white;
+  padding: 16px;
+  border-radius: 22px;
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+
+/* ---------- LETTER PAGE ---------- */
+.scroll {
+  background: #fdf5e6;
+  border: 2px solid #d2b48c;
+  border-radius: 12px;
+  padding: 40px 25px;
+  max-width: 650px;
+  margin: 40px auto;
+  position: relative;
+  cursor: pointer;
+}
+
+.scroll::before,
+.scroll::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 18px;
+  background: #d2b48c;
+  left: 0;
+}
+
+.scroll::before {
+  top: -18px;
+  border-radius: 18px 18px 0 0;
+}
+
+.scroll::after {
+  bottom: -18px;
+  border-radius: 0 0 18px 18px;
+}
+
+.string {
+  width: 90px;
+  height: 6px;
+  background: #7a3e1d;
+  margin: 10px auto 20px;
+  border-radius: 5px;
+}
+
+.letter-text {
+  display: none;
+  color: black;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  white-space: pre-wrap;
+}
+</style>
+</head>
+
+<body>
+
+<!-- SCREEN 1 -->
+<div class="screen active hero" id="screen1">
+  <div class="bow bow1">🎀</div>
+  <div class="bow bow2">🎀</div>
+  <div class="bow bow3">🎀</div>
+  <div class="bow bow4">🎀</div>
+
+  <div class="sparkle sp1">✨</div>
+  <div class="sparkle sp2">✨</div>
+  <div class="sparkle sp3">✨</div>
+  <div class="sparkle sp4">✨</div>
+
+  <h1>Happy Birthday Aanya</h1>
+  <div class="sub">A little corner of love, just for you</div>
+
+  <button class="btn" onclick="goToScreen(2)">Next</button>
+</div>
+
+<!-- SCREEN 2 -->
+<div class="screen" id="screen2">
+  <h1 style="color:#c4002f;">Letters for You</h1>
+
+  <div class="name-grid">
+    <div class="name-box" onclick="openLetter('Ira')">Ira</div>
+    <div class="name-box" onclick="openLetter('Shreya')">Shreya</div>
+    <div class="name-box" onclick="openLetter('Vanshika')">Vanshika</div>
+    <div class="name-box" onclick="openLetter('Palak')">Palak</div>
+    <div class="name-box" onclick="openLetter('Krishna')">Krishna</div>
+    <div class="name-box" onclick="openLetter('Sanchita')">Sanchita</div>
+    <div class="name-box" onclick="openLetter('Saravya')">Saravya</div>
+    <div class="name-box" onclick="openLetter('Vrinda')">Vrinda</div>
+    <div class="name-box" onclick="openLetter('Vaanya')">Vaanya</div>
+    <div class="name-box" onclick="openLetter('Aisha')">Aisha</div>
+  </div>
+
+  <button class="btn" onclick="goToScreen(1)">Go Back</button>
+</div>
+
+<!-- SCREEN 3 -->
+<div class="screen" id="screen3">
+  <h1 id="letterTitle" style="color:#c4002f;"></h1>
+
+  <div class="scroll" onclick="unrollLetter()">
+    <div class="string"></div>
+    <div class="letter-text" id="letterText"></div>
+  </div>
+
+  <button class="btn" onclick="goToScreen(2)">Go Back</button>
+</div>
+
+<script>
+const letters = {
+"Ira": `Dear Aanya,
+
+I have a tendency of making friends with everyone, and one of the closest friends I have made over the years...aanya is one of the best ones. She is one of those people I can always trust with my emotions and feelings and even when I need a good laugh. Even tho we don't meet often, or even text as much...I always know that she will be there for me, like I for her. 
+I love you Aanya, you were the person with me when I was going through so much... the one who sticked with me and just gave me space to grow and I hope that our bond stays like this even when we might not see eachother a lot. I hope you still, laugh and say the most randomest things ever that cracks me up the most. 
+
+Happiest Birthday Aanya, 
+
+Love Ira ♡`,
+
+"Shreya": `Aanya, happy birthday!! You are such a kind soul and an awesome person all around. Your presence is so comforting and talking to you is so easy because you are literally an angel. Thank you for being my friend, I don't know where the future will lead us but remember if you ever need me just say the word and I'll be there for you. Love ya!
+-Shreya Raja`,
+
+"Vanshika": `Happiest birthday MISSLI 🫶😘💋💗
+I love you more than you’ll ever know 💗
+My day is incomplete with you in it and I have no plans on changing it ever
+You’re definitely my only best friend and others are js my close and very good friends 
+There’s nothing I ever had to hide or lie abt to you because I know you’re my safe space 
+I’m so grateful to have a misudi like you in my life and I promise to be your pav forever 
+Ik you’ll always be my bsf because I’ll always stick around like I said I would 
+You’re my prettiest cutest missal pav missli misudi braises kadhi pakoda 
+There’s no one I love more than you 
+Ik you can get into any college if you want dw abt that 
+I always be there for your sad moments and ofc at the happiest ones 
+You’re literally my mitochondria and 
+“I”lysm till the end of the beginning 
+there’s no one i’d rather have beside me than you 
+You’re home to me.
+everyone can have missal js not MY missal 
+Happiest birthday pretty girl 
+I hope the world for you😘😘💋💋`,
+
+"Palak": `Happy Birthday Aanu ❤️
+
+Sabse pehle to ek tight si hug  le le yahan se hi 🤗
+yaar sach bolu to mujhe bohot zyada yaad aa rahi hai teri but chl koi ni our bond remains the same🫂
+You deserve all the love, laughter, cake, and cuddles in the world today, and even more. 
+Loveeeee youuuuu sooo muchhhh darlinggg!!!
+I miss u alot🥹😭
+Please vapis aaja aur mere se mil le please 🫂🫂
+Lots of love too uuuu❤️❤️❤️❤️🫶🏻🫶🏻🫶🏻`,
+
+"Krishna": `Happyy Birthday Day Aanya 💗🧿
+Honestly , jab hum 10th mein mile , I never really thought ki we wud become soo close friends and that I would share things with you. You have no idea how much you have helped me throughout, Thank you.
+
+I'll always wish the best for you ... May you be very successful ... 😇🧿🫶🏻 , stay happy and keep smiling 😌`,
+
+"Sanchita": `Happy Birthday, Aanya!
+Wishing you a year filled with purpose, peace, and progress. You’ve grown into such a strong, thoughtful, and graceful person, and I feel lucky to call you my friend. May this new chapter bring you closer to your dreams, surround you with genuine people, and teach you things that make you even wiser. Keep shining, and never stop believing in your power.
+Here’s to growth, calmness, and everything you truly deserve❤️
+
+Lovesss you alotttttt💋😭`,
+
+"Saravya": `You’re beautiful, stop comparing yourself with others who don’t know you. you’re one of the most genuine people and someone who stays even when everyone leaves. I appreciate you the most ❤️`,
+
+"Vrinda": `Happiestttt bdayyyy aanya…May god bless you with good health wealth and happiness always although we didn’t talk that much but still you are soooo sweettt and kind I hope you maintain this quality of yours forever 🥹🎀💕🧿😭`,
+
+"Vaanya": `To the girl with the prettiest smile and the sweetest and the most angelic soul🥹🫶🏻.....HAPPYYY HAPPYYY BIRTHDAYYYY AANYA 🫶🏻💗...I love you so soo muchhh and you're literally the most adorable person I've ever met 🎀🎀... even though the time we were together in school was very short and i couldn't get to know you much but i still feel like i could always count on you and i hope you feel the same too as u can always rely on me for anything anytime 🫶🏻🫶🏻....i hope our bond remains the same and also grows stronger 🩷...and i soo love your compliments  they make me so happyy hehe 🤭...thankyou for being such a great friend 🥹💕....ly always and i wish to meet you super soon 🫶🏻...and Wishing you the best always and forever may God bless you always and you keep growing in life and keep getting all the success you deserve ✨🧿
+
+Lots of Love, 
+vaanya <3`,
+
+"Aisha": `You’re not just my best friend, you're the family I chose, thank you for filling my life with laughter and love.❤️‍🩹Through every high and low, you’ve stood by my side .🧿 You're the best gift that God has ever gifted me .✨️ I'm gonna cherish our friendship 4life and 4ever and ever . 🫀
+💕 HAPPY BIRTHDAY ANU ( MERI DIL KI MASUUM KALI ) 💕`
+};
+
+function goToScreen(num) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById('screen' + num).classList.add('active');
+}
+
+function openLetter(name) {
+  document.getElementById('letterTitle').innerText = name + "'s Letter";
+  document.getElementById('letterText').innerText = letters[name];
+  document.getElementById('letterText').style.display = "none";
+  goToScreen(3);
+}
+
+function unrollLetter() {
+  document.getElementById('letterText').style.display = "block";
+}
+</script>
+
+</body>
+</html>
