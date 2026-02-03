@@ -133,11 +133,14 @@
       <div class="name-box" onclick="openLetter('Vanshika')">Vanshika</div>
       <div class="name-box" onclick="openLetter('Saravya')">Saravya</div>
       <div class="name-box" onclick="openLetter('Krishna')">Krishna</div>
+      <div class="name-box" onclick="openLetter('Aisha')">Aisha</div>
       <div class="name-box" onclick="openLetter('Palak')">Palak</div>
       <div class="name-box" onclick="openLetter('Ira')">Ira</div>
       <div class="name-box" onclick="openLetter('Shreya')">Shreya</div>
       <div class="name-box" onclick="openLetter('Vanyya')">Vanyya</div>
-    </div>
+      <div class="name-box" onclick="openLetter('Vrinda')">Vrinda</div>
+      <div class="name-box" onclick="openLetter('Sanchita')">Sanchita</div>
+       </div>
 
     <button class="btn" onclick="goToScreen(1)">Go Back</button>
   </div>
@@ -160,20 +163,139 @@
   </div>
 
   <script>
-    function goToScreen(num) {
-      document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-      document.getElementById('screen' + num).classList.add('active');
-    }
+    <script>
+  const letters = {
+    "Vanshika": `Happiest birthday MISSLI 🫶😘💋💗
+I love you more than you’ll ever know 💗
+My day is incomplete with you in it and I have no plans on changing it ever
+You’re definitely my only best friend and others are js my close and very good friends 
+There’s nothing I ever had to hide or lie abt to you because I know you’re my safe space 
+I’m so grateful to have a misudi like you in my life and I promise to be your pav forever 
+Ik you’ll always be my bsf because I’ll always stick around like I said I would 
+You’re my prettiest cutest missal pav missli misudi braises kadhi pakoda 
+There’s no one I love more than you 
+Ik you can get into any college if you want dw abt that 
+I always be there for your sad moments and ofc at the happiest ones 
+You’re literally my mitochondria and 
+“I”lysm till the end of the beginning 
+there’s no one i’d rather have beside me than you 
+You’re home to me.
+everyone can have missal js not MY missal 
+Happiest birthday pretty girl 
+I hope the world for you😘😘💋💋`,
 
-    function openLetter(name) {
-      document.getElementById('letterTitle').innerText = name + "'s Letter 💕";
-      document.getElementById('letterText').style.display = "none";
-      goToScreen(3);
-    }
+    "Ira": `Dear Aanya,
 
-    function unrollLetter() {
-      document.getElementById('letterText').style.display = "block";
-    }
+I have a tendency of making friends with everyone, and one of the closest friends I have made over the years... aanya is one of the best ones.
+She is one of those people I can always trust with my emotions and feelings and even when I need a good laugh.
+
+Even tho we don't meet often, or even text as much... I always know that she will be there for me, like I for her.
+
+I love you Aanya, you were the person with me when I was going through so much... the one who sticked with me and just gave me space to grow.
+
+I hope that our bond stays like this even when we might not see each other a lot.
+I hope you still laugh and say the most randomest things ever that crack me up the most.
+
+Happiest Birthday Aanya,
+
+Love Ira ♡`,
+
+    "Shreya": `Aanya, happy birthday!!
+You are such a kind soul and an awesome person all around.
+Your presence is so comforting and talking to you is so easy because you are literally an angel.
+
+Thank you for being my friend.
+I don't know where the future will lead us but remember if you ever need me just say the word and I'll be there for you.
+
+Love ya!
+– Shreya Raja`,
+
+    "Palak": `Happy Birthday Aanu ❤️
+
+Sabse pehle to ek tight si hug le le yahan se hi 🤗
+yaar sach bolu to mujhe bohot zyada yaad aa rahi hai teri but chl koi ni our bond remains the same 🫂
+
+You deserve all the love, laughter, cake, and cuddles in the world today, and even more.
+Loveeeee youuuuu sooo muchhhh darlinggg!!!
+
+I miss u alot 🥹😭
+Please vapis aaja aur mere se mil le please 🫂🫂
+
+Lots of love to uuuu ❤️❤️❤️❤️🫶🏻🫶🏻🫶🏻`,
+
+    "Krishna": `Happyy Birthday Aanya 💗🧿
+
+Honestly, jab hum 10th mein mile, I never really thought ki we would become so close friends.
+You have no idea how much you have helped me throughout.
+
+Thank you.
+I'll always wish the best for you.
+May you be very successful 😇🧿🫶🏻
+Stay happy and keep smiling 😌`,
+
+    "Sanchita": `Happy Birthday, Aanya!
+
+Wishing you a year filled with purpose, peace, and progress.
+You’ve grown into such a strong, thoughtful, and graceful person, and I feel lucky to call you my friend.
+
+May this new chapter bring you closer to your dreams, surround you with genuine people, and teach you things that make you even wiser.
+
+Keep shining, and never stop believing in your power ❤️
+
+Lovesss you alotttttt 💋😭`,
+
+    "Saravya": `You’re beautiful, stop comparing yourself with others who don’t know you.
+You’re one of the most genuine people and someone who stays even when everyone leaves.
+
+I appreciate you the most ❤️`,
+
+    "Vrinda": `Happiestttt bdayyyy Aanya…
+
+May God bless you with good health, wealth and happiness always.
+Although we didn’t talk that much, you are sooo sweet and kind.
+
+I hope you maintain this quality of yours forever 🥹🎀💕🧿😭`,
+
+    "Vaanya": `To the girl with the prettiest smile and the sweetest, most angelic soul 🥹🫶🏻
+
+HAPPYYY HAPPYYY BIRTHDAYYYY AANYA 🫶🏻💗
+
+Even though the time we were together in school was very short, I still feel like I could always count on you and I hope you feel the same too.
+
+Our bond may grow stronger with time 🩷
+Thank you for being such a great friend 🥹💕
+
+Wishing you the best always and forever.
+Lots of Love,
+Vaanya <3`,
+
+    "Aisha": `You’re not just my best friend, you're the family I chose.
+Thank you for filling my life with laughter and love ❤️‍🩹
+
+Through every high and low, you’ve stood by my side 🧿
+You're the best gift God has ever gifted me ✨️
+
+I’ll cherish our friendship forever.
+
+💕 HAPPY BIRTHDAY ANU (MERI DIL KI MASUUM KALI) 💕`
+  };
+
+  function goToScreen(num) {
+    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+    document.getElementById('screen' + num).classList.add('active');
+  }
+
+  function openLetter(name) {
+    document.getElementById('letterTitle').innerText = name + "'s Letter 💕";
+    document.getElementById('letterText').innerText = letters[name];
+    document.getElementById('letterText').style.display = "none";
+    goToScreen(3);
+  }
+
+  function unrollLetter() {
+    document.getElementById('letterText').style.display = "block";
+  }
+</script>
   </script>
 
 </body>
